@@ -1,6 +1,7 @@
 package de.tekup.db.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,6 +25,11 @@ public class EmployeeEntity {
 	private String email;
 	
 	private LocalDate dob;
+	//to control Date Format
+	//public void setDob(String date) {
+	//	DateTimeFormatter pattern= DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	//	this.dob = LocalDate.parse(date, pattern);
+	//}
 	
 	
 
