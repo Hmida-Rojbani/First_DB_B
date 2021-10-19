@@ -1,13 +1,13 @@
 package de.tekup.db.entities;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -30,6 +30,8 @@ public class EmployeeEntity {
 	//	DateTimeFormatter pattern= DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	//	this.dob = LocalDate.parse(date, pattern);
 	//}
+	@OneToOne
+	private Matricule matricule;
 	
 	
 
