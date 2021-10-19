@@ -49,4 +49,12 @@ public class EmployeeService {
 			
 			return empRepos.save(employee);
 		}
+		
+		// SQL : delete
+		public EmployeeEntity deleteEmployeeById(int id) {
+			EmployeeEntity employee = getEmployeeById(id);
+			empRepos.deleteById(id);
+			return employee;
+		}
+		
 }
