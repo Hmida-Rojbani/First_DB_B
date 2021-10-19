@@ -2,6 +2,7 @@ package de.tekup.db.entities;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,8 +31,8 @@ public class EmployeeEntity {
 	//	DateTimeFormatter pattern= DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	//	this.dob = LocalDate.parse(date, pattern);
 	//}
-	@OneToOne
-	private Matricule matricule;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private Matricule matricule; 
 	
 	
 
