@@ -1,5 +1,6 @@
 package de.tekup.db.services;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -57,4 +58,18 @@ public class EmployeeService {
 			return employee;
 		}
 		
+		//SQL : select * from table where name = name
+				public EmployeeEntity getEmployeeByName(String name){
+					Optional<EmployeeEntity> opt = empRepos.findByNameIgnoreCase(name);
+//					if(opt.isPresent())
+//						return opt.get();
+//					throw new NoSuchElementException("Employee with this id is not found");
+					
+					return opt.orElseThrow(()->new NoSuchElementException("Employee with this id is not found"));
+				}
+				
+				//SQL : select * from table where dob >= dob
+				public List<EmployeeEntity> getEmployeesAfterDob(LocalDate date){
+					return empRepos.allEmployeesAfterDob(date);
+				}
 }

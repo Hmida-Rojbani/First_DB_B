@@ -1,5 +1,6 @@
 package de.tekup.db.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -37,6 +38,16 @@ public class EmployeeCtrl {
 	@GetMapping("/employee/get/{id}")
 	public EmployeeEntity getOnefromDB(@PathVariable int id){
 		return empService.getEmployeeById(id);
+	}
+	
+	@GetMapping("/employee/get/name/{name}")
+	public EmployeeEntity getOneByNamefromDB(@PathVariable String name){
+		return empService.getEmployeeByName(name);
+	}
+	@GetMapping("/employee/get/date/{date}")
+	public List<EmployeeEntity> getAllByDatefromDB(@PathVariable String date){
+		LocalDate d = LocalDate.parse(date);
+		return empService.getEmployeesAfterDob(d);
 	}
 	
 	@PutMapping("/employee/update/{id}")
