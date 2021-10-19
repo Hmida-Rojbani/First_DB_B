@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,9 +39,14 @@ public class EmployeeCtrl {
 		return empService.getEmployeeById(id);
 	}
 	
-	@PutMapping("employee/update/{id}")
+	@PutMapping("/employee/update/{id}")
 	public EmployeeEntity updateOnefromDB(@PathVariable int id,@RequestBody EmployeeEntity employeeEntity){
 		return empService.updateEmployeeById(id, employeeEntity);
+	}
+	
+	@DeleteMapping("/employee/delete/{id}")
+	public EmployeeEntity deleteOnefromDB(@PathVariable int id){
+		return empService.deleteEmployeeById(id);
 	}
 	
 	@ExceptionHandler(NoSuchElementException.class)
