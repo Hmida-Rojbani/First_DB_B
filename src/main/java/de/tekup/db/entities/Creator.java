@@ -1,5 +1,6 @@
 package de.tekup.db.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ public class Creator {
 	private String name;
 	
 	@OneToMany(mappedBy = "creator")
-	private List<Matricule> matricules;
+	private List<Matricule> matricules = new ArrayList<>();
 	
 
 }
